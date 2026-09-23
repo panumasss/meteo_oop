@@ -15,6 +15,7 @@ public class meteo_fame extends JFrame {
     public static void main(String[] args) {
         meteo_fame fame = new meteo_fame();
         Sence sence = new Sence(fame.number);
+        System.out.println("Number of meteors: " + fame.number);
         fame.add(sence);
         fame.setVisible(true);
     }
