@@ -1,25 +1,21 @@
 import javax.swing.*;
-import java.awt.*;
 
 public class meteo_fame extends JFrame {
 
+    JTextField textField;
+   int number;
     public meteo_fame() {
-
-        setSize(500, 500);
+        setSize(1920, 1080); // 1920 / 2 = 960, 1080 / 2 = 540
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(null);
-
-        ImageIcon icon = new ImageIcon("background.jpg");
-        JLabel background = new JLabel(icon);
-
-        background.setBounds(0, 0, 500, 500);
-
-        add(background);
-
-        setVisible(true);
+        setLocationRelativeTo(null);
+    String num  = JOptionPane.showInputDialog(null, "Input Metero number:");
+         number = Integer.parseInt(num);
     }
 
     public static void main(String[] args) {
-        new meteo_fame();
+        meteo_fame fame = new meteo_fame();
+        Sence sence = new Sence(fame.number);
+        fame.add(sence);
+        fame.setVisible(true);
     }
 }
