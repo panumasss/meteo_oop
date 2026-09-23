@@ -29,15 +29,15 @@ public class Sence extends JPanel {
             positionX[i] = (int) (Math.random() * (1920 - 50));
             positionY[i] = (int) (Math.random() * (1080 - 50));
             
-            speedX[i] = (int) (Math.random() * 11) - 5; // ความเร็วสุ่มระหว่าง -5 ถึง 5
-            speedY[i] = (int) (Math.random() * 11) - 5; // ความเร็วสุ่มระหว่าง -5 ถึง 5
-            ThreadMeteo threads = new ThreadMeteo(i, this);
+            speedX[i] = (int) (Math.random() * 11) - 5;  //สุ่ม11 ตัว เริ่มที่ -5 ถึง 5
+            speedY[i] = (int) (Math.random() * 11) - 5; 
+            
+            ThreadMeteor threads = new ThreadMeteor(i, this);
               threads.start();
         }
     }
    
-   
-   
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -50,31 +50,5 @@ public class Sence extends JPanel {
     
     }
 }
-    //สุ่มการเกิด,การชน,ความเร็ว
-class ThreadMeteo extends Thread {
-    
-    int number;
-    int speed;
-    Sence sence;
-    public ThreadMeteo(int  number, Sence sence) {
-        this.number = number;
-        this.sence = sence;
-        this.speed = (int) (Math.random() * 100) + 5; 
-    }
-    
-    @Override
-    public void run() {
-        while (true) { 
-                
-                sence.positionY[number] += sence.speedY[number];
-                sence.positionX[number] += sence.speedX[number];
-                sence.repaint();   
-            try {    
-                    Thread.sleep(speed);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
+ 
 
