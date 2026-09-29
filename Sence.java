@@ -3,34 +3,36 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class Sence extends JPanel {
-        Image bg = new ImageIcon("images/background.jpg").getImage();
-        Image[] templet = new Image[10];
-         Image[] meteos;
-       int[]positionX;
-       int[]positionY;
-       int number;
-        int[] speedY; 
-        int randomMeteor;
+
+    Image bg = new ImageIcon("images/background.jpg").getImage();
+    Image[] templet = new Image[10];
+    Image[] meteos;
+
+    int[]positionX;
+    int[]positionY;
+    int number;
+    int[] speedY; 
+    int randomMeteor;
   
   
     public Sence(int number) {
         this.number = number;
-      meteos = new Image[number];
+        meteos = new Image[number];
       
-        System.out.println("Number of meteors: " + number);
-            
+        System.out.println("Number of meteors: " + number);   
   
         for (int i = 0; i < meteos.length; i++) {
           meteos[i]= getMeteor();
-              }
+        }
     }
+
     public Image getMeteor(){
         for (int i = 0; i < templet.length; i++)  // 0-9 10 ตัว
-         {   
-        templet[i]= new ImageIcon("images/Meteo" + (i + 1) + ".png").getImage(); 
-         } 
+        {   
+          templet[i]= new ImageIcon("images/Meteo" + (i + 1) + ".png").getImage(); 
+        } 
                   
-         randomMeteor = (int) (Math.random() * 10) + 0; //สุ่ม 10 ตัว เริ่มที่ 0 ถึง 9
+        randomMeteor = (int) (Math.random() * 10) + 0; //สุ่ม 10 ตัว เริ่มที่ 0 ถึง 9
         return templet[randomMeteor];
     }
 
