@@ -12,7 +12,9 @@ public class ThreadMeteor extends Thread {
         System.out.println("Thread "+ number);
     }
 
+    // method ตรวจสอบการชนกันของ meteors
     public void checkShonMeteor(int nubmer) {
+        // สร้าง Rectangle สำหรับการตรวจสอบการชนกันของ meteors
         Rectangle meteor1 = new Rectangle(sence.positionX[number], sence.positionY[number], 70, 70);
 
         for (int i = 0; i < sence.meteos.length; i++) {
@@ -22,9 +24,10 @@ public class ThreadMeteor extends Thread {
 
             Rectangle meteor2 = new Rectangle(sence.positionX[i], sence.positionY[i], 70, 70);
 
+            // ตรวจสอบการชนกันของ meteors
             if (meteor1.intersects(meteor2)) {
                 int randomMeteor = (int)(Math.random() * 2);
-
+                
                 if (randomMeteor == 0) {
                     sence.meteos[number] = null;
                     sence.showBomb(sence.positionX[number], sence.positionY[number]);
@@ -37,6 +40,7 @@ public class ThreadMeteor extends Thread {
         }
     }
     
+    // ทำงานของ Thread
     @Override
     public void run() {
         while (true) { 

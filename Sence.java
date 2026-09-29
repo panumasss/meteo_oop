@@ -75,18 +75,19 @@ public class Sence extends JPanel {
         }).start();
     }
     
+    // method การวาดภาพ background และ meteors และ ภาพระเบิด
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         
-        g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
+        g.drawImage(bg, 0, 0, getWidth(), getHeight(), this); // วาดภาพ background ให้เต็มหน้าจอ
 
         for (int i = 0; i < meteos.length; i++) {
-            g.drawImage(meteos[i], positionX[i], positionY[i], 70, 70, this);
+            g.drawImage(meteos[i], positionX[i], positionY[i], 70, 70, this); // วาด meteors ขนาด 70x70
         }
 
         if (isBomb) {
-            g.drawImage(bomb.getImage(), bombPositionX, bombPositionY, 100, 100, this);
+            g.drawImage(bomb.getImage(), bombPositionX, bombPositionY, 70, 70, this); // วาดภาพระเบิดขนาด 70x70
         }
      }
 }

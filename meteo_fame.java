@@ -6,7 +6,7 @@ public class meteo_fame extends JFrame {
     public meteo_fame() {
 
         // ตั้งค่าขนาดของ JFrame และการปิดหน้าต่าง
-        setSize(1920, 1080); // 1920 / 2 = 960, 1080 / 2 = 540
+        setSize(1920, 1080);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -23,6 +23,6 @@ public class meteo_fame extends JFrame {
         System.out.println("Number of meteors: " + fame.number);
         fame.add(sence);
         fame.setVisible(true);
-        
+
     }
 }
