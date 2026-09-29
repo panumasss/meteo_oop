@@ -4,11 +4,13 @@ public class meteo_fame extends JFrame {
 
    int number;
     public meteo_fame() {
+
         setSize(1920, 1080); // 1920 / 2 = 960, 1080 / 2 = 540
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-    String num  = JOptionPane.showInputDialog(null, "Input Metero number:");
-         number = Integer.parseInt(num);
+        
+        String num  = JOptionPane.showInputDialog(null, "Input Metero number:");
+        number = Integer.parseInt(num);
     }
        
     public static void main(String[] args) {
