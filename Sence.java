@@ -32,17 +32,12 @@ public class Sence extends JPanel {
 
             positionX[i] = (int) (Math.random() * (1920 - 200)); // 0 - getWidth() - 200
             positionY[i] = (int) (Math.random() * (1080 - 200)); // 0 - getHeight() - 200
-            
-            speedX[i] = (int) (Math.random() * 11) - 5;  //เริ่มที่ -5 ถึง 5
-            speedY[i] = (int) (Math.random() * 11) - 5;  //เริ่มที่ -5 ถึง 5
 
-            if (speedX[i] == 0) {
-                speedX[i] = 1; // ป้องกันไม่ให้ speedX เป็น 0
-            }
-            
-            if (speedY[i] == 0) {
-                speedY[i] = 1; // ป้องกันไม่ให้ speedY เป็น 0
-            }
+            // ตรวจสอบว่า speedX และ speedY ไม่เป็น 0 ทั้งคู่
+            do {
+                speedX[i] = (int) (Math.random() * 11) - 5;  //เริ่มที่ -5 ถึง 5
+                speedY[i] = (int) (Math.random() * 11) - 5;  //เริ่มที่ -5 ถึง 5
+            } while (speedX[i] == 0 && speedY[i] == 0); 
 
             meteos[i] = getMeteor(); // สุ่ม meteors
 
