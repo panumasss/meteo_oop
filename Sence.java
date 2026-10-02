@@ -36,6 +36,14 @@ public class Sence extends JPanel {
             speedX[i] = (int) (Math.random() * 11) - 5;  //เริ่มที่ -5 ถึง 5
             speedY[i] = (int) (Math.random() * 11) - 5;  //เริ่มที่ -5 ถึง 5
 
+            if (speedX[i] == 0) {
+                speedX[i] = 1; // ป้องกันไม่ให้ speedX เป็น 0
+            }
+            
+            if (speedY[i] == 0) {
+                speedY[i] = 1; // ป้องกันไม่ให้ speedY เป็น 0
+            }
+
             meteos[i] = getMeteor(); // สุ่ม meteors
 
             ThreadMeteor threads = new ThreadMeteor(i, this);

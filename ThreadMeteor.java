@@ -8,7 +8,7 @@ public class ThreadMeteor extends Thread {
     public ThreadMeteor(int  number, Sence sence) {
         this.number = number;
         this.sence = sence;
-        this.delay = (int) (Math.random() * 99) + 5; // สุ่ม 100 ตัว เริ่มที่ 5 ถึง 100 millisec
+        this.delay = (int) (Math.random() * 89) + 10; // สุ่ม 100 ตัว เริ่มที่ 10 ถึง 100 millisec
         System.out.println("Thread "+ number);
     }
 
