@@ -58,12 +58,26 @@ public class ThreadMeteor extends Thread {
                 
                 //ชนขอบจอทั้งข้างบนและข้างล่าง
                 if(sence.positionX[number] < 0 || sence.positionX[number] > sence.getWidth() - 70) {
-                    sence.speedX[number] = (int)(-sence.speedX[number] * 1.1);
-                  
+                    sence.speedX[number] = (-sence.speedX[number]);
+                    
+                    // ปรับความเร็วให้ไม่เป็น 0
+                    if (sence.speedX[number] < 0) {
+                        sence.speedX[number] += -1;
+                    }
+                    else {
+                        sence.speedX[number] += 1;
+                    }
                 }
                 if(sence.positionY[number] < 0 || sence.positionY[number] > sence.getHeight() - 70) {
-                    sence.speedY[number] = (int)(-sence.speedY[number] * 1.1);
+                    sence.speedY[number] = (-sence.speedY[number]);
                     
+                    // ปรับความเร็วให้ไม่เป็น 0
+                    if (sence.speedY[number] < 0) {
+                        sence.speedY[number] += -1;
+                    }
+                    else {
+                        sence.speedY[number] += 1;
+                    }
                 }
 
                 sence.repaint();   

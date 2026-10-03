@@ -12,6 +12,12 @@ public class meteo_fame extends JFrame {
 
         // ตั้งค่าชื่อของ JFrame
         String num  = JOptionPane.showInputDialog(null, "Input Metero number:");
+
+        if (num.contains(".") || num.isEmpty() || num.contains("-") ) {
+            JOptionPane.showMessageDialog(null, "please input number > 0 and not decimal");
+            System.exit(0);
+        }
+        
         number = Integer.parseInt(num);
     }
        

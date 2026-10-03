@@ -8,7 +8,7 @@ public class Sence extends JPanel {
     Image[] templet = new Image[10];
     Image[] meteos;
 
-    ImageIcon bomb = new ImageIcon("images/bomb.gif");
+    Image bomb = new ImageIcon("images/bomb.gif").getImage();
     int bombPositionX;
     int bombPositionY;
     boolean isBomb = false;
@@ -35,8 +35,8 @@ public class Sence extends JPanel {
 
             // ตรวจสอบว่า speedX และ speedY ไม่เป็น 0 ทั้งคู่
             do {
-                speedX[i] = (int) (Math.random() * 11) - 5;  //เริ่มที่ -5 ถึง 5
-                speedY[i] = (int) (Math.random() * 11) - 5;  //เริ่มที่ -5 ถึง 5
+                speedX[i] = (int) (Math.random() * 13) - 6;  //เริ่มที่ -6 ถึง 6
+                speedY[i] = (int) (Math.random() * 13) - 6;  //เริ่มที่ -6 ถึง 6
             } while (speedX[i] == 0 && speedY[i] == 0); 
 
             meteos[i] = getMeteor(); // สุ่ม meteors
@@ -65,17 +65,24 @@ public class Sence extends JPanel {
 
         isBomb = true;
         repaint();
+        
 
-        new Thread(() -> {
-            try {
-                Thread.sleep(1000); // แสดงภาพระเบิดเป็นเวลา 1 วินาที
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        // สร้าง Thread เพื่อรอ 1 วินาทีแล้วซ่อนภาพระเบิด
+        Runnable DelayBomb = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000); // รอ 1 วินาที
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                isBomb = false;
+                repaint();
             }
+        };
 
-            isBomb = false;
-            repaint();
-        }).start();
+        Thread Bomb = new Thread(DelayBomb);
+        Bomb.start();
     }
     
     // method การวาดภาพ background และ meteors และ ภาพระเบิด
@@ -90,7 +97,7 @@ public class Sence extends JPanel {
         }
 
         if (isBomb) {
-            g.drawImage(bomb.getImage(), bombPositionX, bombPositionY, 70, 70, this); // วาดภาพระเบิดขนาด 70x70
+            g.drawImage(bomb, bombPositionX, bombPositionY, 70, 70, this); // วาดภาพระเบิดขนาด 70x70
         }
      }
 }
